@@ -1,0 +1,24 @@
+<div class="container p-5">
+     <div class="row">
+       <div class="col-sm-8 offset-2">
+          <div *ngIf="questionLocation < 5">
+          <p class="text-center">{{questionLocation +1}} of {{quizzes.length}}</p>
+        <h1>{{quizzes[questionLocation].question}}</h1>
+        <ul class="list-group" *ngFor ="let quiz of quizzes[questionLocation].answer">
+        <label>
+            <li class="list-group-item">
+                <input type="radio" name="option"  (change) =onAnswer(quiz.correct) [disabled]="answerSelect">
+                {{quiz.option}}</li>
+            </label>
+        </ul>
+        </div>
+        <div *ngIf="questionLocation > 4">
+        <button class="btn btn-outline-success" (click)="ShowResult()">Show Result</button>
+        <div *ngIf="result">
+        <h2> Correct Answer:{{correctAns}} | incorrect Answer: {{incorrectAns}}</h2>
+        <h3>Thank you to contact me :alnzysuliman@gmail.com</h3>
+        </div>
+       </div>
+      </div>
+    </div>
+</div>
